@@ -1,0 +1,28 @@
+# Core Data Science Libraries
+pandas==2.0.3
+numpy==1.24.3
+
+# Machine Learning
+scikit-learn==1.3.0
+scipy==1.11.1
+
+# Web API
+fastapi
+uvicorn
+python-multipart
+
+# Collaborative Filtering
+# scikit-surprise is not used, using scipy.sparse.linalg.svds instead
+
+# Visualization
+matplotlib==3.7.2
+seaborn==0.12.2
+
+# Utilities
+tqdm==4.65.0
+joblib==1.3.1
+
+# Optional: For advanced features
+# tensorflow==2.13.0
+# torch==2.0.1
+# transformers==4.30.2

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streamly | AI-Powered Recommendations</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <i class="fas fa-rocket"></i>
+                <span>Streamly</span>
+            </div>
+            <ul class="nav-links">
+                <li class="active"><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#"><i class="fas fa-compass"></i> Discover</a></li>
+                <li><a href="#"><i class="fas fa-heart"></i> Watchlist</a></li>
+                <li><a href="#"><i class="fas fa-history"></i> History</a></li>
+            </ul>
+            <div class="user-selector-container">
+                <label for="user-select">Switch User</label>
+                <select id="user-select">
+                    <option value="" disabled selected>Select a profile</option>
+                    <!-- Users will be populated here -->
+                </select>
+            </div>
+            <div class="region-selector-container">
+                <label for="region-select">Region</label>
+                <select id="region-select">
+                    <option value="Global">Global</option>
+                    <option value="US">United States</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="India">India</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Australia">Australia</option>
+                </select>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="Search movies, genres, actors...">
+                </div>
+                <div class="user-profile">
+                    <span id="current-user-name">Guest User</span>
+                    <div class="avatar"></div>
+                </div>
+            </header>
+
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <span class="badge">Trending Now</span>
+                    <h1 id="hero-title">Discover Your Next Favorite</h1>
+                    <p id="hero-desc">Personalized movies tailored to your taste using advanced AI hybrid filtering.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary"><i class="fas fa-play"></i> Watch Now</button>
+                        <button class="btn btn-secondary"><i class="fas fa-plus"></i> Add to List</button>
+                    </div>
+                </div>
+                <div class="hero-overlay"></div>
+            </section>
+
+            <!-- Search Results -->
+            <section class="results-section" id="search-section" style="display: none;">
+                <div class="section-header">
+                    <h2 id="search-query-title">Search Results</h2>
+                    <button class="btn-text" id="clear-search">Clear</button>
+                </div>
+                <div class="movie-grid" id="search-grid">
+                    <!-- Cards populated by JS -->
+                </div>
+            </section>
+
+            <!-- Personalized Recommendations -->
+            <section class="results-section" id="personalized-section" style="display: none;">
+                <div class="section-header">
+                    <h2>Picked for You</h2>
+                    <a href="#" class="see-all">See All</a>
+                </div>
+                <div class="movie-grid" id="personalized-grid">
+                    <!-- Cards will be populated handled by JS -->
+                </div>
+            </section>
+
+            <!-- Trending Section -->
+            <section class="results-section">
+                <div class="section-header">
+                    <h2>Trending Content</h2>
+                    <a href="#" class="see-all">See All</a>
+                </div>
+                <div class="movie-grid" id="trending-grid">
+                    <!-- Cards populated by JS -->
+                </div>
+            </section>
+
+            <!-- Popular Section -->
+            <section class="results-section">
+                <div class="section-header">
+                    <h2>All-Time Popular</h2>
+                    <a href="#" class="see-all">See All</a>
+                </div>
+                <div class="movie-grid" id="popular-grid">
+                    <!-- Cards populated by JS -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Movie Details Modal -->
+    <div id="movie-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="modal-poster" id="modal-poster"></div>
+                <div class="modal-info">
+                    <h2 id="modal-title">Movie Title</h2>
+                    <div class="modal-meta">
+                        <span id="modal-year">2023</span>
+                        <span id="modal-genre">Action</span>
+                        <span id="modal-score">Score: 4.5</span>
+                    </div>
+                    <p id="modal-desc">Description of the movie goes here...</p>
+
+                    <div class="why-recommended">
+                        <h3><i class="fas fa-magic"></i> Why we recommend this</h3>
+                        <p id="modal-explanation">Based on your shared interest in similar genres and popular trends.
+                        </p>
+                    </div>
+
+                    <div class="similar-movies-container">
+                        <h3>Similar Movies</h3>
+                        <div class="similar-grid" id="similar-grid">
+                            <!-- Similar movies -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
